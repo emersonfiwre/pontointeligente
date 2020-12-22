@@ -2,7 +2,7 @@ package com.example.pontointeligente.services
 
 import com.example.pontointeligente.documents.Funcionario
 import com.example.pontointeligente.enums.PerfilEnum
-import com.example.pontointeligente.repository.FuncionarioRepository
+import com.example.pontointeligente.repositories.FuncionarioRepository
 import com.example.pontointeligente.utils.SenhaUtils
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach

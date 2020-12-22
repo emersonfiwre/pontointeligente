@@ -1,4 +1,4 @@
-package com.example.pontointeligente.repository
+package com.example.pontointeligente.repositories
 
 import com.example.pontointeligente.documents.Empresa
 import org.springframework.data.mongodb.repository.MongoRepository

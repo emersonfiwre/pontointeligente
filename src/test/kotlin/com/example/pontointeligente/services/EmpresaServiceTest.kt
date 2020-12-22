@@ -1,7 +1,7 @@
 package com.example.pontointeligente.services
 
 import com.example.pontointeligente.documents.Empresa
-import com.example.pontointeligente.repository.EmpresaRepository
+import com.example.pontointeligente.repositories.EmpresaRepository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

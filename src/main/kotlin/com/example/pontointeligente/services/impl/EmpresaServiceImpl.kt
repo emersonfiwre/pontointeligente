@@ -1,7 +1,7 @@
 package com.example.pontointeligente.services.impl
 
 import com.example.pontointeligente.documents.Empresa
-import com.example.pontointeligente.repository.EmpresaRepository
+import com.example.pontointeligente.repositories.EmpresaRepository
 import com.example.pontointeligente.services.EmpresaService
 import org.springframework.stereotype.Service
 
