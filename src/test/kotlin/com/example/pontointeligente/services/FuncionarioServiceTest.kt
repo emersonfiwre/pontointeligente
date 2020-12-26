@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import java.lang.Exception
+import java.util.*
 
 @SpringBootTest
 class FuncionarioServiceTest {
@@ -32,11 +33,11 @@ class FuncionarioServiceTest {
     fun setUp() {
         BDDMockito.given(funcionarioRepository?.save(Mockito.any(Funcionario::class.java)))
             .willReturn(funcionario())
-        BDDMockito.given(funcionarioRepository?.findById(id)?.get()).willReturn(funcionario())
+        BDDMockito.given(funcionarioRepository?.findById(id)).willReturn(Optional.of(funcionario()))
         BDDMockito.given(funcionarioRepository?.findByEmail(email)).willReturn(funcionario())
         BDDMockito.given(funcionarioRepository?.findByCpf(cpf)).willReturn(funcionario())
     }
-/*
+
     @Test
     fun testPersistirFuncionario() {
         val funcionario: Funcionario? = this.funcionarioService?.persistir(funcionario())
@@ -53,16 +54,18 @@ class FuncionarioServiceTest {
     fun testBuscarFuncionarioPorEmail() {
         val funcionario: Funcionario? = this.funcionarioService?.buscarPorEmail(email)
         Assertions.assertNotNull(funcionario)
-    }*/
+    }
 
     @Test
     fun testBuscarFuncionarioPorCpf() {
-        val funcionario: Funcionario? = this.funcionarioService?.buscarPorCpf("123456789")
+        val funcionario: Funcionario? = this.funcionarioService?.buscarPorCpf(cpf)
         Assertions.assertNotNull(funcionario)
     }
 
     private fun funcionario(): Funcionario =
-        Funcionario("Nome", email, SenhaUtils().gerarBcrypt("123456"),
-            cpf, PerfilEnum.ROLE_USUARIO, id)
+        Funcionario(
+            "Nome", email, SenhaUtils().gerarBcrypt("123456"),
+            cpf, PerfilEnum.ROLE_USUARIO, id
+        )
 
 }
