@@ -16,6 +16,11 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework:spring-orm")
+	implementation("org.springframework.boot:spring-boot-starter-validation")
+	//implementation("org.hibernate:hibernate-validator:4.3.2.Final")
+	implementation("org.hibernate:hibernate-entitymanager")
+	//Eu tive que adicionar ↑
 	implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("org.springframework.boot:spring-boot-starter-web")

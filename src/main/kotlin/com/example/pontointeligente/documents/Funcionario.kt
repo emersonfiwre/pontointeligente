@@ -15,6 +15,6 @@ class Funcionario(
         val valorHora: Double? = 0.0,
         val horasTrabalhoDia: Float? = 0.0f,
         val qtdeHorasAlmoco: Float? = 0.0f,
-        @Id val id: String? = null
+        @Id var id: String? = null
 
 )
