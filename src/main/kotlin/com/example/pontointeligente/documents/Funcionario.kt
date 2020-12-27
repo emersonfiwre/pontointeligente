@@ -13,7 +13,7 @@ class Funcionario(
         val perfil: PerfilEnum,
         val empresaId: String,
         val valorHora: Double? = 0.0,
-        val horasTrabalhoDia: Float? = 0.0f,
+        val qtdHorasTrabalhoDia: Float? = 0.0f,
         val qtdeHorasAlmoco: Float? = 0.0f,
         @Id var id: String? = null
 

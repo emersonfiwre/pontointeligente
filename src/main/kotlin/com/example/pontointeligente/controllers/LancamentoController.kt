@@ -38,7 +38,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
         validarFuncionario(lancamentoDto, result)
 
         if (result.hasErrors()) {
-            for (erro in result.allErrors) response.erros.add(erro.defaultMessage)
+            result.allErrors.forEach { erro -> erro.defaultMessage?.let { response.erros.add(it) } }
             return ResponseEntity.badRequest().body(response)
         }
 
@@ -93,7 +93,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
         val lancamento: Lancamento = converterDtoParaLancamento(lancamentoDto, result)
 
         if (result.hasErrors()) {
-            for (erro in result.allErrors) response.erros.add(erro.defaultMessage)
+            result.allErrors.forEach { erro -> erro.defaultMessage?.let { response.erros.add(it) } }
             return ResponseEntity.badRequest().body(response)
         }
 
@@ -103,7 +103,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN')")
+    //@PreAuthorize("hasAnyRole('ADMIN')")
     fun remover(@PathVariable("id") id: String): ResponseEntity<Response<String>> {
 
         val response: Response<String> = Response<String>()
