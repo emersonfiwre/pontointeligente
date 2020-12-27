@@ -47,7 +47,7 @@ class LancamentoControllerTest {
 
     @Test
     @Throws(Exception::class)
-    @WithMockUser
+    //@WithMockUser
     fun testCadastrarLancamento() {
         val lancamento: Lancamento = obterDadosLancamento()
 
@@ -93,7 +93,8 @@ class LancamentoControllerTest {
 
     @Test
     @Throws(Exception::class)
-    @WithMockUser(username = "admin@admin.com", roles = arrayOf("ADMIN"))
+    //@WithMockUser(username = "admin@admin.com", roles = arrayOf("ADMIN"))
+    @WithMockUser
     fun testRemoverLancamento() {
         BDDMockito.given<Lancamento>(lancamentoService?.buscarPorId(idLancamento))
             .willReturn(obterDadosLancamento())

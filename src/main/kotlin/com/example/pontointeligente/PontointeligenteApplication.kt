@@ -9,9 +9,11 @@ import com.example.pontointeligente.repositories.LancamentoRepository
 import com.example.pontointeligente.utils.SenhaUtils
 import org.springframework.boot.CommandLineRunner
 import org.springframework.boot.autoconfigure.SpringBootApplication
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
 import org.springframework.boot.runApplication
 
-@SpringBootApplication
+//@SpringBootApplication
+@SpringBootApplication(exclude = [SecurityAutoConfiguration::class])
 class PontointeligenteApplication(val empresaRepository: EmpresaRepository,
 								  val funcionarioRepository: FuncionarioRepository,
 								  val lancamentoRepository: LancamentoRepository

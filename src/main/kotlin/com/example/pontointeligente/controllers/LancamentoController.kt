@@ -34,7 +34,7 @@ class LancamentoController(val lancamentoService: LancamentoService,
     fun adicionar(@Valid @RequestBody lancamentoDto: LancamentoDto,
                   result: BindingResult
     ): ResponseEntity<Response<LancamentoDto>> {
-        val response: Response<LancamentoDto> = Response<LancamentoDto>()
+        val response: Response<LancamentoDto> = Response()
         validarFuncionario(lancamentoDto, result)
 
         if (result.hasErrors()) {
@@ -61,7 +61,8 @@ class LancamentoController(val lancamentoService: LancamentoService,
         response.data = converterLancamentoDto(lancamento)
         return ResponseEntity.ok(response)
     }
-
+    //http://localhost:8080/api/lancamentos/funcionario/5fe8fe1d2d6158749a3f4d3e?dir=ASC - ascendente
+    //http://localhost:8080/api/lancamentos/funcionario/5fe8fe1d2d6158749a3f4d3e - descendente
     @GetMapping("/funcionario/{funcionarioId}")
     fun listarPorFuncionarioId(@PathVariable("funcionarioId") funcionarioId: String,
                                @RequestParam(value = "pag", defaultValue = "0") pag: Int,
